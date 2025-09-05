@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@import "primeicons/primeicons.css";
+
+/* Default color styles */
+:root {
+  --color-sidebar-bg: #F0F5FF;
+  --color-sidebar-hover: lightblue;
+}
+
+/* Overrides PrimeNG styles to put the hover with a visible color. */
+.custom-sidebar-menu {
+    --p-menu-item-focus-background: var(--color-sidebar-hover);
+}
+
+.custom-sidebar-menu .p-menu {
+    @apply min-w-[4rem];
+}
+
+/* Overrides PrimeNG styles to put each item to a */
+.custom-sidebar-menu .p-menu-item {
+    /* Block ensures that the container's item to be full width. */
+    background-color: var(--color-sidebar-bg);
+    display:block;
+}
+
+.custom-sidebar-menu .p-menu-list {
+    /* Block ensures that the container's item to be full width. */
+    background-color: var(--color-sidebar-bg);
+    padding: 0;
+}
+
+/* Overrides PrimeNG styles to put each <a> tag to a full width.
+    This is needed to ensure that when clicking in the container changes the active route. */
+.custom-sidebar-menu .p-menu-item a {
+    @apply block;
+}
