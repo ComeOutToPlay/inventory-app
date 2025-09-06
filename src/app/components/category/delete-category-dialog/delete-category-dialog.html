@@ -1,0 +1,8 @@
+<p-dialog header="{{'page.category.dialog.delete.title' | transloco}}" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+
+    <div class="flex justify-end gap-2">
+        <p-button label="Cancel" severity="secondary" (click)="onCancel()" />
+        <p-button label="Delete" severity="danger" (click)="onDelete()" />
+    </div>
+
+</p-dialog>

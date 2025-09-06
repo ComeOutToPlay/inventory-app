@@ -1,0 +1,133 @@
+{
+  "app": {
+    "title": "Inventory" 
+  },
+  "button": {
+    "add": "Add",
+    "change": "Change",
+    "edit": "Edit",
+    "delete": "Delete",
+    "cancel": "Cancel"
+  },
+  "page": {
+    "home": {
+      "title": "Home"
+    },
+    "category": {
+      "title": "Categories",
+      "dialog": {
+        "delete": {
+          "title": "Delete Category"
+        },
+        "add": {
+          "title": "Add Category"
+        },
+        "edit": {
+          "title": "Edit Category"
+        }
+      }
+    },
+    "login": {
+      "label": {
+        "login": "Login",
+        "username": "Username",
+        "password": "Password"
+      },
+      "button": {
+        "login": "Login"
+      },
+      "message": {
+        "authentication": "Authentication",
+        "success": "You are logged in successfully!",
+        "error": "Cannot authenticate the user."
+      }
+    },
+    "product": {
+      "title": "Products",
+      "dialog": {
+        "delete": {
+          "title": "Delete Product"
+        },
+        "add": {
+          "title": "Add Product"
+        },
+        "edit": {
+          "title": "Edit Product"
+        }
+      }      
+    }
+  },
+  "language": {
+      "en": "English",
+      "es": "Spanish"
+  },
+  "message": {
+    "language": {
+      "summary": "Language Change",
+      "detail": "You have changed to the language: {{language}}"
+    },
+    "categoryCreated": {
+      "summary": "Category Creation",
+      "detail": "The Category was created successfully."
+    },
+    "categoryNotCreated": {
+      "summary": "Category Creation",
+      "detail": "The Category was not created."
+    },
+    "categoryNotUpdated": {
+      "summary": "Category Update",
+      "detail": "The Category was not updated."
+    },
+    "categoryUpdated": {
+      "summary": "Category Update",
+      "detail": "The Category was updated successfully."
+    }, 
+    "logout": {
+      "summary": "Logout",
+      "detail": "You are logged out."
+    },
+    "productCreated": {
+      "summary": "Product Creation",
+      "detail": "The Product was created successfully."
+    },
+    "productNotCreated": {
+      "summary": "Product Creation",
+      "detail": "The Product was not created."
+    },
+    "productNotUpdated": {
+      "summary": "Product Update",
+      "detail": "The Product was not updated."
+    },
+    "productUpdated": {
+      "summary": "Product Update",
+      "detail": "The Product was updated successfully."
+    }
+  },
+  "severity": {
+    "error": "Error",
+    "info": "Información",
+    "success": "Éxito",
+    "warn": "Advertencia"
+  },
+  "sidebar": {
+    "home": "Home",
+    "category": "Categories",
+    "logout": "Logout",    
+    "product": "Products"
+  },
+  "table": {
+    "category": {
+      "categoryId": "Id",
+      "name": "Name"
+    },
+    "product": {
+      "productId": "Id",
+      "name": "Name",
+      "description": "Description",
+      "categories": "Categories"
+    },
+    "template":{
+      "pagination" : "Showing {{first}} to {{last}} of {{total}} entries"
+    }
+  }
+}

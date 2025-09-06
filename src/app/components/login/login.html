@@ -1,1 +1,22 @@
-<p>login works!</p>
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+  <p-card header="{{ 'page.login.label.login' | transloco }}" class="w-96 p-4">
+    <div class="p-4 flex flex-col gap-4">
+      <form [formGroup]="loginFormGroup" class="flex flex-col gap-4">
+        <p-floatLabel variant="on">
+          <input id="username" type="text" pInputText formControlName="username" class="w-full border border-gray-300 rounded-md p-2 mb-1">
+          <label for="username">{{ 'page.login.label.username' | transloco }}</label>
+        </p-floatLabel>
+
+        <p-floatLabel variant="on">
+          <p-password id="password" formControlName="password" [toggleMask]="true" class="w-full"
+            inputStyleClass="w-full border border-gray-300 rounded-md p-2 mb-1" [feedback]="false"></p-password>
+          <label for="password">{{ 'page.login.label.password' | transloco }}</label>
+        </p-floatLabel>
+        <div class="flex justify-end">
+          <button pButton type="button" label="Login" (click)="login()" [disabled]="!loginFormGroup.valid"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"></button>
+        </div>
+      </form>
+    </div>
+  </p-card>
+</div>

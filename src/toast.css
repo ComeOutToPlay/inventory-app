@@ -1,0 +1,21 @@
+.p-toast-message-content {
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+.p-toast-message-icon {
+  margin-top: 0.5rem !important;
+  width:0.875rem !important;
+  height:0.875rem !important;
+}
+
+.p-toast-close-button {
+  margin-top: 0.5rem !important;
+  width:0.875rem !important;
+  height:0.875rem !important;  
+}
+
+/* Asegura el espaciado correcto para los íconos */
+.p-toast-icon {
+  margin-right: 0.5rem !important;
+}

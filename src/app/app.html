@@ -1,62 +1,77 @@
-<!-- Toolbar -->
-<div class="bg-blue-600 flex text-white items-center px-1 h-8 overflow-hidden">
-  <button
-    class="p-2 mr-2 block rounded-md transition-colors duration-300 hover:bg-blue-700"
-    (click)="toggleSidebar()">
-    <i class="pi pi-bars"></i>
-  </button>
-  <span class="font-bold">Aegis</span>
-</div>
-<div class="flex">
-  <!-- Sidebar -->
-   @if(sidebarVisible)
-   {
+<!-- Main container.-->
+<div class="h-screen flex flex-col">
+  <p-toast position="bottom-right" [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }">
+  </p-toast>
+  
+  @if(isLogged())
+  {
+  <!-- Toolbar -->
+  <div class="bg-blue-600 flex text-white items-center px-1 h-8 flex-shrink-0 overflow-hidden">
+    <button class="p-2 mr-2 block rounded-md transition-colors duration-300 hover:bg-blue-700"
+      (click)="toggleSidebar()">
+      <i class="pi pi-bars"></i>
+    </button>
+    <span class="font-bold">{{ 'app.title' | transloco }}</span>
+
+    <button class="p-2 ml-auto block rounded-md transition-colors duration-300 hover:bg-blue-700"
+      (click)="menu.toggle($event)">
+      <i class="pi pi-ellipsis-v"></i>
+    </button>
+
+    <p-menu #menu [model]="langItems" [popup]="true">
+      <ng-template #item let-item>
+        <a (click)="item.command()" class="p-1 w-full inline-block">
+          <i [class]="item.icon" class="mr-1"></i>
+          <span>{{ item.label }}</span>
+        </a>
+      </ng-template>
+    </p-menu>
+  </div>
+  <div class="flex flex-1 overflow-hidden">
+    <!-- Sidebar -->
+    @if(sidebarVisible)
+    {
     <div class="relative inset-0 z-50 flex">
-      <div
-          class="fixed w-32 bg-blue-50 shadow-lg transform transition-transform duration-300 h-full"
-          [class.translate-x-0]="sidebarAnimating || !isMobile"
-          [class.-translate-x-full]="!sidebarAnimating && isMobile">
-         
-          @if(isMobile)
-          {
-            <button
-              class="absolute top-2 right-2 p-2"
-              (click)="closeSidebar()">
-              <i class="pi pi-times"></i>
-            </button>
-          }
+      <div class="fixed w-32 bg-blue-50 shadow-lg transform transition-transform duration-300 h-full"
+        [class.translate-x-0]="sidebarAnimating || !isMobile" [class.-translate-x-full]="!sidebarAnimating && isMobile">
 
+        @if(isMobile)
+        {
+        <button class="absolute top-2 right-2 p-2" (click)="closeSidebar()">
+          <i class="pi pi-times"></i>
+        </button>
+        }
 
-        <p-menu
-          [model]="items"
-          [popup]="false"
-          class="custom-sidebar-menu">
-            <ng-template #item let-item>
-              <a [routerLink]="item.routerLink"
-                class="p-menuitem-link p-1 inline-block"
-                [ngClass]="{'font-semibold bg-gray-200 w-full': isActive(item.routerLink)}"
-              >
-                <i [class]="item.icon" class="mr-1"></i>
-                <span>{{item.label}}</span>
-              </a>
-            </ng-template>
+        <p-menu [model]="items" [popup]="false" class="custom-sidebar-menu">
+          <ng-template #item let-item>
+            <a [routerLink]="item.routerLink" class="p-menuitem-link p-1 inline-block"
+              [ngClass]="{'font-semibold bg-gray-200 w-full': isActive(item.routerLink)}">
+              <i [class]="item.icon" class="mr-1"></i>
+              <span>{{item.label}}</span>
+            </a>
+          </ng-template>
         </p-menu>
       </div>
     </div>
-   }
- 
-  <!-- Overlay for mobile -->
-   @if(sidebarVisible && isMobile)
-   {
-    <div class="fixed inset-0 bg-opacity-30 z-40"
-        (click)="closeSidebar()">
+    }
+
+    <!-- Overlay for mobile -->
+    @if(sidebarVisible && isMobile)
+    {
+    <div class="fixed inset-0 bg-opacity-30 z-40" (click)="closeSidebar()">
     </div>
-   }
+    }
 
-
-  <!-- Main content -->
-  <div class="flex-1 p-4 transition-all duration-300"
+    <!-- Main content -->
+    <div class="flex-1 p-4 transition-all duration-300 overflow-y-auto"
       [ngClass]="{'md:ml-32': sidebarVisible && !isMobile}">
-    <router-outlet></router-outlet>
+
+      <router-outlet></router-outlet>
+    </div>
   </div>
+  }
+  @else
+  {
+  <router-outlet></router-outlet>
+  }
 </div>

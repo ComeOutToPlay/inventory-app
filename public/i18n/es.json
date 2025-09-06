@@ -1,0 +1,118 @@
+{
+    "app": {
+      "title": "Inventario" 
+    },
+    "button": {
+    "add": "Agregar",
+    "change": "Cambiar",
+    "delete": "Eliminar",
+    "edit": "Modificar",
+    "cancel": "Cancelar"
+  },
+  "page": {
+    "home": {
+      "title": "Inicio"
+    },
+    "category": {
+      "title": "Categorías",
+      "dialog": {
+        "delete": {
+          "title": "Eliminar Categoria"
+        },
+        "add": {
+          "title": "Agregar Categoría"
+        },
+        "edit": {
+          "title": "Modificar Categoría"
+        }
+      }
+    },    
+    "login": {
+      "label": {
+        "login": "Inicio de Sesión",
+        "username": "Usuario",
+        "password": "Contraseña"
+      },
+      "button": {
+        "login": "Ingresar"
+      },
+      "message": {
+        "authentication": "Autenticación",
+        "success": "Usted ha iniciado sesión exitosamente!",
+        "error": "No se pudo autenticar al usuario."
+      }
+
+    },
+    "product": {
+      "title": "Productos",
+      "dialog": {
+        "delete": {
+          "title": "Eliminar Producto"
+        },
+        "add": {
+          "title": "Agregar Producto"
+        },
+        "edit": {
+          "title": "Modificar Producto"
+        }
+      }      
+    }
+  },
+  "language": {
+      "en": "Inglés",
+      "es": "Español"
+  },
+  "message": {
+    "language": {
+      "summary": "Cambio de Idioma",
+      "detail": "Usted ha cambiado al idioma: {{language}}"
+    },
+    "categoryCreated": {
+      "summary": "Creación de Categoría",
+      "detail": "La Categoría fue creada exitosamente."
+    },   
+    "categorytUpdated": {
+      "summary": "Actualización de Categoría",
+      "detail": "La Categoría fue actualizada exitosamente."
+    },    
+    "logout": {
+      "summary": "Cierre de Sesión",
+      "detail": "Usted ha cerrado su sesión."
+    },
+    "productCreated": {
+      "summary": "Creación de Producto",
+      "detail": "El Producto fue creado exitosamente."
+    },
+    "productUpdated": {
+      "summary": "Actualización de Producto",
+      "detail": "El Producto fue actualizado exitosamente."
+    }    
+  },  
+  "severity": {
+    "error": "Error",
+    "info": "Información",
+    "success": "Éxito",
+    "warn": "Advertencia"
+  },  
+  "sidebar": {
+    "home": "Inicio",
+    "category": "Categorías",
+    "product": "Productos",
+    "logout": "Cerrar Sesion"    
+  },
+  "table": {
+    "category": {
+      "categoryId": "Id",
+      "name": "Nombre"
+    },
+    "product": {
+      "productId": "Id",
+      "name": "Nombre",
+      "description": "Descripción",
+      "categories": "Categorías"
+    },
+    "template":{
+      "pagination" : "Mostrando {{first}} a {{last}} de {{total}} registros"
+    }
+  }
+}
