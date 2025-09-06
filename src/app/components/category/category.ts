@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { CategoryData } from '../../models/category-data.model';
 import { TableLazyLoadEvent, TableModule } from 'primeng/table';
 import { CategoryService } from '../../services/category.service';
@@ -8,6 +8,7 @@ import { DialogModule } from 'primeng/dialog';
 import { SaveCategoryDialog } from './save-category-dialog/save-category-dialog';
 import { MessageService } from 'primeng/api';
 import { DeleteCategoryDialog } from './delete-category-dialog/delete-category-dialog';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-category',
@@ -15,7 +16,11 @@ import { DeleteCategoryDialog } from './delete-category-dialog/delete-category-d
   templateUrl: './category.html',
   styleUrl: './category.css'
 })
-export class Category {
+export class Category implements OnDestroy{
+
+  // Public property to hold the translated string
+  pageReportString: string = '';
+  private translateSub: Subscription | undefined;
 
   // Reference to the child component
   @ViewChild(SaveCategoryDialog) saveCategoryDialog!: SaveCategoryDialog;
@@ -67,22 +72,6 @@ export class Category {
     this.datasource = [];
   }
 
-  get pageReportTemplate(): string {
-    if (!this.datasource) {
-      return '';
-    }
-
-    const totalItems = this.totalRecords;
-    const firstItem = this.first + 1;
-    const lastItem = this.first + this.datasource.length;
-
-    return this.translocoService.translate('table.template.pagination', {
-      first: firstItem,
-      last: lastItem,
-      total: totalItems
-    });
-  }
-
   loadDatasource(event: TableLazyLoadEvent){
     this.loading = true;
     this.lastTableLazyLoadEvent = event;
@@ -96,6 +85,24 @@ export class Category {
           this.datasource = data.items;
           this.totalRecords = data.totalItems;
           this.loading = false;
+
+          // Unsubscribe from any previous subscription before a new one
+          if (this.translateSub) {
+            this.translateSub.unsubscribe();
+          }
+
+          // Subscribe to the translated string
+          this.translateSub = this.translocoService.selectTranslate(
+            'table.template.pagination',
+            {
+              first: this.first + 1,
+              last: this.first + this.datasource.length,
+              total: this.totalRecords
+            }
+          ).subscribe(translatedString => {
+            // Assign the translated string to your property when it's available
+            this.pageReportString = translatedString;
+          });
         },
         error: (err: any) => {
 
@@ -228,5 +235,12 @@ export class Category {
 
   onCancelDeleteDialog() {
     this.visibleDeleteDialog = false;
+  }
+
+  // Mandatory: Unsubscribe when the component is destroyed
+  ngOnDestroy(): void {
+    if (this.translateSub) {
+      this.translateSub.unsubscribe();
+    }
   }
 }

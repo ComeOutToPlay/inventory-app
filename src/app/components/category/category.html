@@ -21,7 +21,7 @@
 <p-table #ref_datatable [columns]="columns" [value]="datasource" [scrollable]="false" showGridlines="true"
     selectionMode="multiple" [(selection)]="selectedRows" [rowHover]="true" [resizableColumns]="true"
     columnResizeMode="expand" 
-    [showCurrentPageReport]="true" [currentPageReportTemplate]="pageReportTemplate"
+    [showCurrentPageReport]="true" [currentPageReportTemplate]="pageReportString"
     [tableStyle]="{ 'min-width': '50rem' }" [lazy]="true" (onLazyLoad)="loadDatasource($event)" [loading]="loading"
     [paginator]="true" [rows]="rowsDefault" [rowsPerPageOptions]="rowsPerPageOptions" [totalRecords]="totalRecords"
     [pageLinks]="3" dataKey="categoryId">

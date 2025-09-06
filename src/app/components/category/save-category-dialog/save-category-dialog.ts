@@ -42,8 +42,10 @@ export class SaveCategoryDialog {
       this._visible = value;
       this.visibleChange.emit(value);
 
-      // Resets the form when the dialog is made visible
-      if (value) {
+      // Resets the form when the dialog is made visible, only if not in edit mode
+      // If not is done this way, the second time a dialog is opened, 
+      // the form does not show the values of the category
+      if (value && !this.isEditMode) {
         this.addCategoryForm.reset();
       }
     }
@@ -67,6 +69,7 @@ export class SaveCategoryDialog {
   }
 
   loadCategoryData(category: any) {
+    
     this.addCategoryForm.reset();
     if (category) {
       this.addCategoryForm.patchValue(category);
