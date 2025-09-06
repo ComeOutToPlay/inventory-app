@@ -224,6 +224,9 @@ export class Category implements OnDestroy{
             detail: this.translocoService.translate(deletedDetailKey)
           });
 
+          // Clear selected rows after successful deletion
+          this.selectedRows = [];
+
           // After successfully creating, reload the table data
           this.loadDatasource(this.lastTableLazyLoadEvent!);           
         },
