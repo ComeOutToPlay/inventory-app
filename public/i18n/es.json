@@ -17,7 +17,11 @@
       "title": "Categorías",
       "dialog": {
         "delete": {
-          "title": "Eliminar Categoria"
+          "title": "Eliminar Categoria",
+          "message": {
+            "singular": "Estas seguro de eliminar esta categoría?",
+            "plural": "Estas seguro de eliminar estas categorías?"
+          }
         },
         "add": {
           "title": "Agregar Categoría"
@@ -47,7 +51,11 @@
       "title": "Productos",
       "dialog": {
         "delete": {
-          "title": "Eliminar Producto"
+          "title": "Eliminar Producto",
+          "message": {
+            "singular": "Estas seguro de eliminar este producto?",
+            "plural": "Estas seguro de eliminar estos productos?"
+          }
         },
         "add": {
           "title": "Agregar Producto"
@@ -70,7 +78,35 @@
     "categoryCreated": {
       "summary": "Creación de Categoría",
       "detail": "La Categoría fue creada exitosamente."
-    },   
+    }, 
+    "categoryDeleted": {
+      "single": {
+        "summary": "Eliminación de Categoría",
+        "detail": "La Categoría fue eliminada exitosamente."
+      },
+      "plural": {
+        "summary": "Eliminación de Categorías",
+        "detail": "Las Categorías fueron eliminadas exitosamente."
+      }
+    },
+    "categoryNotCreated": {
+      "summary": "Creación de Categoría",
+      "detail": "La Categoría no fue creada."
+    },
+    "categoryNotDeleted": {
+      "single": {
+        "summary": "Eliminación de Categoría",
+        "detail": "La Categoría no fue eliminada."
+      },
+      "plural": {
+        "summary": "Eliminación de Categorías",
+        "detail": "Las Categorías no fueron eliminadas."
+      }
+    },
+    "categoryNotUpdated": {
+      "summary": "Actualización de Categoría",
+      "detail": "La Categoría no fue actualizada."
+    },
     "categorytUpdated": {
       "summary": "Actualización de Categoría",
       "detail": "La Categoría fue actualizada exitosamente."
@@ -82,6 +118,34 @@
     "productCreated": {
       "summary": "Creación de Producto",
       "detail": "El Producto fue creado exitosamente."
+    },
+    "productDeleted": {
+      "singular": {
+        "summary": "Eliminación de Producto",
+        "detail": "El Producto fue eliminado exitosamente."
+      },
+      "plural": {
+        "summary": "Eliminación de Productos",
+        "detail": "Los Productos fueron eliminados exitosamente."
+      }
+    },
+    "productNotCreated": {
+      "summary": "Creación de Producto",
+      "detail": "El Producto no fue creado."
+    },
+    "productNotDeleted": {
+      "singular": {
+        "summary": "Eliminación de Producto",
+        "detail": "El Producto no fue eliminado."
+      },
+      "plural": {
+        "summary": "Eliminación de Productos",
+        "detail": "Los Productos no fueron eliminados."
+      }
+    },
+    "productNotUpdated": {
+      "summary": "Actualización de Producto",
+      "detail": "El Producto no fue actualizado."
     },
     "productUpdated": {
       "summary": "Actualización de Producto",

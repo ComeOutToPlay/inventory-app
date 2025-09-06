@@ -46,9 +46,6 @@ export class Category implements OnDestroy{
   // Selected category to edit
   selectedCategoryToSave: any | null = null; 
 
-  // Selected categories to delete
-  selectedCategoriesToDelete: any[] = [];
-
   rowsPerPageOptions: number[];
 
   constructor(
@@ -199,32 +196,50 @@ export class Category implements OnDestroy{
 
   // Open the dialog
   deleteDialog() {
+
     this.visibleDeleteDialog = true;
   }
 
   onDeleteCategories(categories: any[]) {
 
     this.visibleDeleteDialog = false;
-    const selectedIds = categories.map(c => c.categoryId).join(',');
+    const selectedIds = categories.map(c => c.categoryId);
+    const isSingle = categories.length === 1;
 
+    // Select the translation keys based on the count
+    const deletedSummaryKey = isSingle
+      ? 'message.categoryDeleted.single.summary'
+      : 'message.categoryDeleted.plural.summary';
+    const deletedDetailKey = isSingle
+      ? 'message.categoryDeleted.single.detail'
+      : 'message.categoryDeleted.plural.detail';
+      
     // Category creation
     this.categoryService.deleteList(selectedIds).subscribe(
       {
         next: (data: any) => { 
           this.messageService.add({
             severity: 'success',
-            summary: this.translocoService.translate('message.categoryCreated.summary'),
-            detail: this.translocoService.translate('message.categoryCreated.detail')
+            summary: this.translocoService.translate(deletedSummaryKey),
+            detail: this.translocoService.translate(deletedDetailKey)
           });
 
           // After successfully creating, reload the table data
           this.loadDatasource(this.lastTableLazyLoadEvent!);           
         },
         error: (err: any) => {
+
+          const errorSummaryKey = isSingle
+            ? 'message.categoryNotDeleted.single.summary'
+            : 'message.categoryNotDeleted.plural.summary';
+          const errorDetailKey = isSingle
+            ? 'message.categoryNotDeleted.single.detail'
+            : 'message.categoryNotDeleted.plural.detail';
+
           this.messageService.add({
             severity: 'error',
-            summary: this.translocoService.translate('message.categoryNotCreated.summary'),
-            detail: this.translocoService.translate('message.categoryNotCreated.detail')
+            summary: this.translocoService.translate(errorSummaryKey),
+            detail: this.translocoService.translate(errorDetailKey)
           });
         },
         complete: () => {}

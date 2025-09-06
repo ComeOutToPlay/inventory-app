@@ -17,7 +17,11 @@
       "title": "Categories",
       "dialog": {
         "delete": {
-          "title": "Delete Category"
+          "title": "Delete Category",
+          "message": {
+            "singular": "Are you sure you want to delete this category?",
+            "plural": "Are you sure you want to delete these categories?"
+          }
         },
         "add": {
           "title": "Add Category"
@@ -46,7 +50,11 @@
       "title": "Products",
       "dialog": {
         "delete": {
-          "title": "Delete Product"
+          "title": "Delete Product",
+          "message": {
+            "singular": "Are you sure you want to delete this product?",
+            "plural": "Are you sure you want to delete these products?"
+          }
         },
         "add": {
           "title": "Add Product"
@@ -70,9 +78,29 @@
       "summary": "Category Creation",
       "detail": "The Category was created successfully."
     },
+    "categoryDeleted": {
+      "single": {
+        "summary": "Category Deletion",
+        "detail": "The Category was deleted successfully."
+      },
+      "plural": {
+        "summary": "Category Deletion",
+        "detail": "The Categories were deleted successfully."
+      }
+    },
     "categoryNotCreated": {
       "summary": "Category Creation",
       "detail": "The Category was not created."
+    },
+    "categoryNotDeleted": {
+      "single": {
+        "summary": "Category Deletion",
+        "detail": "The Category was not deleted."
+      },
+      "plural": {
+        "summary": "Category Deletion",
+        "detail": "The Categories were not deleted."
+      }
     },
     "categoryNotUpdated": {
       "summary": "Category Update",
@@ -90,9 +118,29 @@
       "summary": "Product Creation",
       "detail": "The Product was created successfully."
     },
+    "productDeleted": {
+      "single": {
+        "summary": "Product Deletion",
+        "detail": "The Product was deleted successfully."
+      },
+      "plural": {
+        "summary": "Product Deletion",
+        "detail": "The Products were deleted successfully."
+      }
+    },
     "productNotCreated": {
       "summary": "Product Creation",
       "detail": "The Product was not created."
+    },
+    "productNotDeleted": {
+      "single": {
+        "summary": "Product Deletion",
+        "detail": "The Product was not deleted."
+      },
+      "plural": {
+        "summary": "Product Deletion",
+        "detail": "The Products were not deleted."
+      }
     },
     "productNotUpdated": {
       "summary": "Product Update",

@@ -15,7 +15,7 @@
   [(visible)]="visibleDeleteDialog"
   (delete)="onDeleteCategories($event)"
   (cancel)="onCancelDeleteDialog()"
-  [categories]="selectedCategoriesToDelete">
+  [categories]="selectedRows">
 </app-delete-category-dialog>
 
 <p-table #ref_datatable [columns]="columns" [value]="datasource" [scrollable]="false" showGridlines="true"

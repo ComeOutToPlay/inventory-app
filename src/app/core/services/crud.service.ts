@@ -62,7 +62,7 @@ export class CrudService<T, ID> implements CrudOperations<T, ID> {
     return this.http.delete<T>(this._fullApiUrl + '/' + id);
   }
 
-  deleteList(ids: string): Observable<T> {
-    return this.http.delete<T>(this._fullApiUrl + '/list/' + encodeURIComponent(ids));  
+  deleteList(ids: number[]): Observable<T> {
+    return this.http.post<T>(this._fullApiUrl + '/bulk-delete/', { ids: ids });  
   }
 }

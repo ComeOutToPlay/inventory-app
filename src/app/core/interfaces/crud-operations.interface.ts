@@ -8,5 +8,5 @@ export interface CrudOperations<T, ID> {
   getAll(): Observable<T[]>;
   getAllByPage(event: any): Observable<T[]>;
   delete(id: ID): Observable<any>;
-  deleteList(ids: string): Observable<T>;
+  deleteList(ids: number[]): Observable<T>;
 }
